@@ -1,5 +1,6 @@
 Uses [Microsoft.PowerShell.Crescendo](https://github.com/PowerShell/Crescendo) to create a PowerShell module for the [GitHub Cli](https://github.com/cli/cli).
 
+It calls the native `gh.exe` and participates in the PowerShell pipeline.
 
 |Function|Description|
 |---|---|
