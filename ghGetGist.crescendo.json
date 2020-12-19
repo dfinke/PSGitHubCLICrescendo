@@ -1,0 +1,17 @@
+{
+    "$schema": "./Microsoft.PowerShell.Crescendo.Schema.json",
+    "Verb": "Get",
+    "Noun": "GHGist",
+    "OriginalName": "gh.exe",
+    "OriginalCommandElements": [        
+        "gist",
+        "list"
+    ],
+    "OutputHandlers": [
+        {
+            "ParameterSetName": "Default",
+            "Handler": "$input| ConvertFrom-Csv -Delimiter \"`t\" -Header 'ID', 'Description','Files','Visibility','Date'",
+            "StreamOutput": true
+        }
+    ]
+}

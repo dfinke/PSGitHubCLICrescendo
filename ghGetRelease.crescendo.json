@@ -1,0 +1,26 @@
+{
+    "$schema": "./Microsoft.PowerShell.Crescendo.Schema.json",
+    "Verb": "Get",
+    "Noun": "GHRelease",
+    "OriginalName": "gh.exe",
+    "OriginalCommandElements": [        
+        "release",
+        "list"
+    ],
+    "OutputHandlers": [
+        {
+            "ParameterSetName": "Default",
+            "Handler": "
+            foreach($item in $input) {
+                $parts = $item -Split \"`t\"
+                [PSCustomObject][Ordered]@{
+                    'Title'=$parts[0]
+                    'Tag'=$parts[2]
+                    'Date'=$parts[3]
+                }
+            }
+            ",
+            "StreamOutput": true
+        }
+    ]
+}

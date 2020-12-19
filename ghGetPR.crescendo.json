@@ -1,0 +1,17 @@
+{
+    "$schema": "./Microsoft.PowerShell.Crescendo.Schema.json",
+    "Verb": "Get",
+    "Noun": "GHPR",
+    "OriginalName": "gh.exe",
+    "OriginalCommandElements": [        
+        "pr",
+        "list"
+    ],
+    "OutputHandlers": [
+        {
+            "ParameterSetName": "Default",
+            "Handler": "$input | ConvertFrom-Csv -Delimiter \"`t\" -Header 'PR', 'Description','User'",
+            "StreamOutput": true
+        }
+    ]
+}
