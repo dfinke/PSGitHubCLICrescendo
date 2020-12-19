@@ -12,5 +12,5 @@ It calls the native `gh.exe` and participates in the PowerShell pipeline.
 ## How to build
 
 ```powershell
-Export-CrescendoModule -ConfigurationFile .\gh*.crescendo.json -ModuleName gh.psm1 -Force; ipmo .\gh.psm1 -Force
+Export-CrescendoModule -ConfigurationFile .\gh*.crescendo.json -ModuleName gh.psm1 -Force
 ```
