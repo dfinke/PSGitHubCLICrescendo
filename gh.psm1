@@ -31,7 +31,7 @@ PROCESS {
     $__commandArgs = $__commandArgs|Where-Object {$_}
     if ($PSBoundParameters["Debug"]){wait-debugger}
     if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gh.exe
+         Write-Verbose -Verbose -Message gh
          $__commandArgs | Write-Verbose -Verbose
     }
     $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
@@ -39,12 +39,12 @@ PROCESS {
         $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
     }
     $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gh.exe")) {
+    if ( $PSCmdlet.ShouldProcess("gh")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gh.exe" $__commandArgs | & $__handler
+            & "gh" $__commandArgs | & $__handler
         }
         else {
-            $result = & "gh.exe" $__commandArgs
+            $result = & "gh" $__commandArgs
             & $__handler $result
         }
     }
@@ -71,7 +71,7 @@ Available commands:
   secret
 System.Management.Automation.RemoteException
 
-.DESCRIPTION See help for gh.exe
+.DESCRIPTION See help for gh
 
 #>
 }
@@ -108,7 +108,7 @@ PROCESS {
     $__commandArgs = $__commandArgs|Where-Object {$_}
     if ($PSBoundParameters["Debug"]){wait-debugger}
     if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gh.exe
+         Write-Verbose -Verbose -Message gh
          $__commandArgs | Write-Verbose -Verbose
     }
     $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
@@ -116,12 +116,12 @@ PROCESS {
         $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
     }
     $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gh.exe")) {
+    if ( $PSCmdlet.ShouldProcess("gh")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gh.exe" $__commandArgs | & $__handler
+            & "gh" $__commandArgs | & $__handler
         }
         else {
-            $result = & "gh.exe" $__commandArgs
+            $result = & "gh" $__commandArgs
             & $__handler $result
         }
     }
@@ -148,7 +148,7 @@ Available commands:
   secret
 System.Management.Automation.RemoteException
 
-.DESCRIPTION See help for gh.exe
+.DESCRIPTION See help for gh
 
 #>
 }
@@ -163,7 +163,6 @@ BEGIN {
     $__PARAMETERMAP = @{}
     $__outputHandlers = @{
         Default = @{ StreamOutput = $True; Handler = { 
-            #$input | ConvertFrom-Csv -Delimiter "`t" -Header 'Title','Tag','Date'
             foreach($item in $input) {
                 $parts = $item -Split "`t"
                 [PSCustomObject][Ordered]@{
@@ -195,7 +194,7 @@ PROCESS {
     $__commandArgs = $__commandArgs|Where-Object {$_}
     if ($PSBoundParameters["Debug"]){wait-debugger}
     if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gh.exe
+         Write-Verbose -Verbose -Message gh
          $__commandArgs | Write-Verbose -Verbose
     }
     $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
@@ -203,12 +202,12 @@ PROCESS {
         $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
     }
     $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gh.exe")) {
+    if ( $PSCmdlet.ShouldProcess("gh")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gh.exe" $__commandArgs | & $__handler
+            & "gh" $__commandArgs | & $__handler
         }
         else {
-            $result = & "gh.exe" $__commandArgs
+            $result = & "gh" $__commandArgs
             & $__handler $result
         }
     }
@@ -235,7 +234,7 @@ Available commands:
   secret
 System.Management.Automation.RemoteException
 
-.DESCRIPTION See help for gh.exe
+.DESCRIPTION See help for gh
 
 #>
 }
@@ -271,7 +270,7 @@ PROCESS {
     $__commandArgs = $__commandArgs|Where-Object {$_}
     if ($PSBoundParameters["Debug"]){wait-debugger}
     if ( $PSBoundParameters["Verbose"]) {
-         Write-Verbose -Verbose -Message gh.exe
+         Write-Verbose -Verbose -Message gh
          $__commandArgs | Write-Verbose -Verbose
     }
     $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
@@ -279,12 +278,12 @@ PROCESS {
         $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
     }
     $__handler = $__handlerInfo.Handler
-    if ( $PSCmdlet.ShouldProcess("gh.exe")) {
+    if ( $PSCmdlet.ShouldProcess("gh")) {
         if ( $__handlerInfo.StreamOutput ) {
-            & "gh.exe" $__commandArgs | & $__handler
+            & "gh" $__commandArgs | & $__handler
         }
         else {
-            $result = & "gh.exe" $__commandArgs
+            $result = & "gh" $__commandArgs
             & $__handler $result
         }
     }
@@ -311,7 +310,7 @@ Available commands:
   secret
 System.Management.Automation.RemoteException
 
-.DESCRIPTION See help for gh.exe
+.DESCRIPTION See help for gh
 
 #>
 }

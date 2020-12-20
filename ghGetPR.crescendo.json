@@ -2,7 +2,7 @@
     "$schema": "./Microsoft.PowerShell.Crescendo.Schema.json",
     "Verb": "Get",
     "Noun": "GHPR",
-    "OriginalName": "gh.exe",
+    "OriginalName": "gh",
     "OriginalCommandElements": [        
         "pr",
         "list"
