@@ -2,8 +2,8 @@ on:
   push:
     branches:
       - master
-    paths:
-    - 'README.md'
+    # paths:
+    # - 'README.md'
 
   pull_request:    
     branches:
