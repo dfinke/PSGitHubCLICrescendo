@@ -1,0 +1,30 @@
+{
+    "$schema": "./Microsoft.PowerShell.Crescendo.Schema.json",
+    "Verb": "Get",
+    "Noun": "GHIssue",
+    "OriginalName": "gh",
+    "OriginalCommandElements": [        
+        "issue",
+        "list",
+        "--state",
+        "all"
+    ],
+    "OutputHandlers": [
+        {
+            "ParameterSetName": "Default",
+            "Handler": "
+            foreach($item in $input) {
+                $parts = $item -Split \"`t\"
+                [PSCustomObject][Ordered]@{
+                    'ID'=$parts[0]
+                    'Status'=$parts[1]
+                    'Description'=$parts[2]
+                    'Label'=$parts[3]
+                    'Date'=$parts[4]
+                }
+            }            
+            ",
+            "StreamOutput": true
+        }
+    ]
+}

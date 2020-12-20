@@ -76,6 +76,96 @@ System.Management.Automation.RemoteException
 #>
 }
 
+Function Get-GHIssue
+{
+[CmdletBinding()]
+
+param(    )
+
+BEGIN {
+    $__PARAMETERMAP = @{}
+    $__outputHandlers = @{
+        Default = @{ StreamOutput = $True; Handler = { 
+            foreach($item in $input) {
+                $parts = $item -Split "`t"
+                [PSCustomObject][Ordered]@{
+                    'ID'=$parts[0]
+                    'Status'=$parts[1]
+                    'Description'=$parts[2]
+                    'Label'=$parts[3]
+                    'Date'=$parts[4]
+                }
+            }            
+             } }
+    }
+}
+PROCESS {
+    $__commandArgs = @(
+        "issue"
+        "list"
+        "--state"
+        "all"
+    )
+    $__boundparms = $PSBoundParameters
+    $MyInvocation.MyCommand.Parameters.Values.Where({$_.SwitchParameter -and $_.Name -notmatch "Debug|Whatif|Confirm|Verbose" -and ! $PSBoundParameters[$_.Name]}).ForEach({$PSBoundParameters[$_.Name] = [switch]::new($false)})
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    foreach ($paramName in $PSBoundParameters.Keys|Sort-Object {$__PARAMETERMAP[$_].OriginalPosition}) {
+        $value = $PSBoundParameters[$paramName]
+        $param = $__PARAMETERMAP[$paramName]
+        if ($param) {
+            if ( $value -is [switch] ) { $__commandArgs += $value.IsPresent ? $param.OriginalName : $param.DefaultMissingValue }
+            elseif ( $param.NoGap ) { $__commandArgs += "{0}""{1}""" -f $param.OriginalName, $value }
+            else { $__commandArgs += $param.OriginalName; $__commandArgs += $value |Foreach-Object {$_}}
+        }
+    }
+    $__commandArgs = $__commandArgs|Where-Object {$_}
+    if ($PSBoundParameters["Debug"]){wait-debugger}
+    if ( $PSBoundParameters["Verbose"]) {
+         Write-Verbose -Verbose -Message gh
+         $__commandArgs | Write-Verbose -Verbose
+    }
+    $__handlerInfo = $__outputHandlers[$PSCmdlet.ParameterSetName]
+    if (! $__handlerInfo ) {
+        $__handlerInfo = $__outputHandlers["Default"] # Guaranteed to be present
+    }
+    $__handler = $__handlerInfo.Handler
+    if ( $PSCmdlet.ShouldProcess("gh")) {
+        if ( $__handlerInfo.StreamOutput ) {
+            & "gh" $__commandArgs | & $__handler
+        }
+        else {
+            $result = & "gh" $__commandArgs
+            & $__handler $result
+        }
+    }
+  } # end PROCESS
+
+<#
+.SYNOPSIS
+unknown shorthand flag: '?' in -?
+System.Management.Automation.RemoteException
+Usage:  gh <command> <subcommand> [flags]
+System.Management.Automation.RemoteException
+Available commands:
+  alias
+  api
+  auth
+  completion
+  config
+  gist
+  help
+  issue
+  pr
+  release
+  repo
+  secret
+System.Management.Automation.RemoteException
+
+.DESCRIPTION See help for gh
+
+#>
+}
+
 Function Get-GHPR
 {
 [CmdletBinding()]
@@ -315,4 +405,4 @@ System.Management.Automation.RemoteException
 #>
 }
 
-Export-ModuleMember -Function Get-GHGist, Get-GHPR, Get-GHRelease, Show-GHRepoOnWeb
+Export-ModuleMember -Function Get-GHGist, Get-GHIssue, Get-GHPR, Get-GHRelease, Show-GHRepoOnWeb
