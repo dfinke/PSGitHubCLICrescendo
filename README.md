@@ -12,6 +12,7 @@ It calls the native `gh.exe` and participates in the PowerShell pipeline.
 |Function|Description|
 |---|---|
 |Get-GHGist|List your gists
+|Get-GHIssue|List issues in a repository
 |Get-GHPR|List pull requests in this repository
 |Get-GHRelease|List releases in a repository
 |Show-GHRepoOnWeb|Open a repository in the browser
