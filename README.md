@@ -2,7 +2,7 @@
 
 |CI|Status|
 |---|---|
-|GitHub Action|![.github/workflows/ci.yml](https://github.com/dfinke/PSGitHubCLICrescendo/workflows/.github/workflows/ci.yml/badge.svg)|
+|GitHub Action|[![.github/workflows/ci.yml](https://github.com/dfinke/PSGitHubCLICrescendo/workflows/.github/workflows/ci.yml/badge.svg)](https://github.com/dfinke/PSGitHubCLICrescendo/actions)|
 
 ## GH PowerShell Module
 Uses [Microsoft.PowerShell.Crescendo](https://github.com/PowerShell/Crescendo) to create a PowerShell module for the [GitHub Cli](https://github.com/cli/cli).
