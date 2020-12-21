@@ -17,13 +17,14 @@ Describe "Test gh psm1" {
         It "Tests all functions were created" {
             $actual = Get-Command -Module gh | Sort-Object name
             
-            $actual.Count | Should -Be 5
+            $actual.Count | Should -Be 6
             
             $actual[0].name | Should -BeExactly 'Get-GHGist'
             $actual[1].name | Should -BeExactly 'Get-GHIssue'
             $actual[2].name | Should -BeExactly 'Get-GHPR'
             $actual[3].name | Should -BeExactly 'Get-GHRelease'
-            $actual[4].name | Should -BeExactly 'Show-GHRepoOnWeb'
+            $actual[4].name | Should -BeExactly 'New-GHGist'
+            $actual[5].name | Should -BeExactly 'Show-GHRepoOnWeb'
         }
     }
 }

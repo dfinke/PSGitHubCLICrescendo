@@ -1,0 +1,42 @@
+{
+    "$schema": "./Microsoft.PowerShell.Crescendo.Schema.json",
+    "Verb": "New",
+    "Noun": "GHGist",
+    "OriginalName": "gh",
+    "OriginalCommandElements": [        
+        "gist",
+        "create"
+    ],
+    "Parameters": [
+        {
+            "Name": "Description",
+            "Position": 0,
+            "OriginalName": "--desc",
+            "ParameterType": "string",
+            "Mandatory": true,
+            "OriginalPosition": 1,
+            "Description": "Description of gist"
+        },
+        {
+            "Name": "Path",
+            "Position": 1,
+            "OriginalName": "",
+            "Mandatory": true,
+            "OriginalPosition": 0,
+            "ParameterType": "string[]",
+            "Description": "file(s) containing content for gist"
+        },
+        {
+            "Name": "Public",
+            "OriginalName": "--public",
+            "ParameterType": "switch",
+            "Description": "Make the gist public"
+        },
+        {
+            "Name": "Online",
+            "OriginalName": "--web",
+            "ParameterType": "switch",
+            "Description": "Open the new gist in browser"
+        }
+    ]
+}
