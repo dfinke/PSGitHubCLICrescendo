@@ -20,3 +20,13 @@ jobs:
     - name: Run Continuous Integration
       run : ./ContinuousIntegration/ContinuousIntegration.ps1
       shell: pwsh
+
+    - name: 'Export-CrescendoModule'
+      run: Export-CrescendoModule -ConfigurationFile ${{ github.workspace }}/gh*.crescendo.json -ModuleName ${{ github.workspace }}/gh.psm1 -Force
+      shell: pwsh
+
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v2
+      with:
+        name: gh.psm1
+        path: ${{ github.workspace }}/gh.psm1
